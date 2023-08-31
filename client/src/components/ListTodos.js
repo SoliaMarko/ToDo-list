@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ItemToDo from "./ItemToDo";
+import EditToDo from "./EditToDo";
+import DeleteToDo from "./DeleteToDo";
 
 const ListTodos = () => {
   const [toDos, setToDos] = useState([]);
@@ -36,11 +38,14 @@ const ListTodos = () => {
         </thead>
         <tbody>
           {toDos.map(toDo => (
-            <ItemToDo
-              key={`key${toDo.todo_id}`}
-              toDo={toDo}
-              filterToDos={filterToDos}
-            />
+            <ItemToDo key={`key${toDo.todo_id}`} toDo={toDo}>
+              <td>
+                <EditToDo toDo={toDo} />
+              </td>
+              <td>
+                <DeleteToDo toDo={toDo} filterToDos={filterToDos} />
+              </td>
+            </ItemToDo>
           ))}
         </tbody>
       </table>
