@@ -4,6 +4,7 @@ const EditToDo = ({ toDo }) => {
   const [description, setDescription] = useState(toDo.description);
 
   const updateDescription = async e => {
+    if (!description) return;
     e.preventDefault();
     try {
       const body = { description };
