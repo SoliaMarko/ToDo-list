@@ -37,7 +37,7 @@ const ListTodos = () => {
         <tbody>
           {toDos.map(toDo => (
             <ItemToDo
-              key={toDo.todo_id}
+              key={`key${toDo.todo_id}`}
               toDo={toDo}
               filterToDos={filterToDos}
             />

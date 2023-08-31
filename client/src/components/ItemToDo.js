@@ -1,3 +1,5 @@
+import EditToDo from "./EditToDo";
+
 const ItemToDo = ({ toDo, filterToDos }) => {
   const deleteToDo = async id => {
     try {
@@ -12,7 +14,9 @@ const ItemToDo = ({ toDo, filterToDos }) => {
   return (
     <tr>
       <td>{toDo.description}</td>
-      <td role="button">Edit</td>
+      <td role="button">
+        <EditToDo toDo={toDo} />
+      </td>
       <td role="button">
         <button
           className="btn btn-danger"
