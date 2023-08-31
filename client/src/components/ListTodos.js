@@ -14,6 +14,10 @@ const ListTodos = () => {
     }
   };
 
+  const filterToDos = id => {
+    setToDos(toDos => toDos.filter(toDo => toDo.todo_id !== id));
+  };
+
   useEffect(() => {
     getToDos();
   }, []);
@@ -32,7 +36,11 @@ const ListTodos = () => {
         </thead>
         <tbody>
           {toDos.map(toDo => (
-            <ItemToDo key={toDo.todo_id} toDo={toDo} />
+            <ItemToDo
+              key={toDo.todo_id}
+              toDo={toDo}
+              filterToDos={filterToDos}
+            />
           ))}
         </tbody>
       </table>
